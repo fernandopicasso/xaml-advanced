@@ -25,7 +25,40 @@
             <RowDefinition Height="0.85*"/>
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
-        <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
+        <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}" >
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Grid Background="DarkGray">
+                            <TextBlock Margin="10" FontWeight="Bold" FontSize="24" >
+                                        <Run Text="Table: "/>
+                                        <Run Text="{Binding Table.Description}"/>
+                            </TextBlock>
+                        </Grid>
+                        <Grid Background="LightGray">
+                            <StackPanel Orientation="Vertical" Height="200">
+                                <TextBlock Margin="10" FontWeight="Bold" FontSize="20" >
+                                            <Run Text="Menu Items: "/>
+                                </TextBlock>
+                                <ListView ItemsSource="{Binding Items}">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Title}" Height="Auto" Margin="15" FontSize="18" />
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Background="DarkGray">
+                            <TextBlock Margin="10" FontStyle="Italic" FontSize="22" Foreground="Red">
+                                    <Run Text="Special Requests: "/>
+                                    <Run Text="{Binding SpecialRequests}" />
+                            </TextBlock>
+                        </Grid>
+                        <Button Content="Delete" HorizontalAlignment="Center" Margin="10"></Button>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
         </GridView>
         <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
     </Grid>
