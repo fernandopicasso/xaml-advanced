@@ -15,8 +15,26 @@ namespace RestaurantManager.Models
             };
         }
 
-        public List<MenuItem> MenuItems { get; set; }
+        private List<MenuItem> _MenuItems;
+        public List<MenuItem> MenuItems
+        {
+            get { return _MenuItems; }
+            set
+            {
+                _MenuItems = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public List<MenuItem> CurrentlySelectedMenuItems { get; set; }
+        private List<MenuItem> _CurrentlySelectedMenuItems;
+        public List<MenuItem> CurrentlySelectedMenuItems
+        {
+            get { return _CurrentlySelectedMenuItems; }
+            set
+            {
+                _CurrentlySelectedMenuItems = value;
+                OnPropertyChanged();
+            }
+        }
     }
 }
