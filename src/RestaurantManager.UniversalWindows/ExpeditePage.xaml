@@ -55,7 +55,7 @@
                                     <Run Text="{Binding SpecialRequests}" />
                             </TextBlock>
                         </Grid>
-                        <Button Content="Delete" HorizontalAlignment="Center" Margin="10"></Button>
+                        <Button Content="Delete" HorizontalAlignment="Center" Margin="10" FontSize="18"></Button>
                     </StackPanel>
                 </DataTemplate>
             </GridView.ItemTemplate>
