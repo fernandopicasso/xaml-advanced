@@ -40,9 +40,6 @@
                             <TextBlock Margin="10" FontWeight="Bold" FontSize="24" >
                                         <Run Text="Table: "/>
                                         <Run Text="{Binding Table.Description}"/>
-                                        <LineBreak />
-                                        <Run Text="Expedite: "/>
-                                        <Run Text="{Binding Expedite}"/>
                             </TextBlock>
                         </Grid>
                         <Grid Background="LightGray">
