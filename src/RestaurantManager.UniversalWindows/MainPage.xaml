@@ -7,16 +7,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:extensions="using:RestaurantManager.Extensions"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="MainPage_OnLoaded">
 
     <Page.Resources>
         <ControlTemplate x:Key="RoundButtonControlTemplate" TargetType="Button">
-            <Border CornerRadius="180" Background="DarkGray">
-                <ContentPresenter HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="250" FontWeight="Bold" FontSize="24" />
+            <Border CornerRadius="30" Background="DarkGray">
+                <ContentPresenter HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="50" FontWeight="Bold" FontSize="24" />
             </Border>
         </ControlTemplate>
         <x:String x:Key="RightClickMessage">Thank you for trying out this demo.</x:String>
         <x:String x:Key="RightClickTitle">Thanks</x:String>
+        <Storyboard x:Name="ButtonSlider">
+            <DoubleAnimation Storyboard.TargetName="OrdersViewButton"
+                             Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.X)"
+                             From="-1000" To="0" Duration="0:0:2.0">
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase Exponent="6" EasingMode="EaseOut"></ExponentialEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+
+            <DoubleAnimation Storyboard.TargetName="SubmitOrderButton"
+                             Storyboard.TargetProperty="(Button.RenderTransform).(TranslateTransform.X)"
+                             From="2000" To="0" By="-1" Duration="0:0:1.5">
+                <DoubleAnimation.EasingFunction>
+                    <ExponentialEase Exponent="6" EasingMode="EaseOut"></ExponentialEase>
+                </DoubleAnimation.EasingFunction>
+            </DoubleAnimation>
+            
+        </Storyboard>
     </Page.Resources>
     
     <i:Interaction.Behaviors>
@@ -35,7 +53,15 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Restaurant Manager" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
         <TextBlock Text="Internal Test Version" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
-        <Button Content="Go to Orders View"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Click="ExpeditePage_Click" Template="{StaticResource RoundButtonControlTemplate}" />
-        <Button Content="Submit Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Click="OrderPage_Click" Template="{StaticResource RoundButtonControlTemplate}" />
+        <Button Name="OrdersViewButton"  Content="Go to Orders View"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Click="ExpeditePage_Click" Template="{StaticResource RoundButtonControlTemplate}">
+            <Button.RenderTransform>
+                <TranslateTransform X="0" Y="0" />
+            </Button.RenderTransform>
+        </Button>
+        <Button Name="SubmitOrderButton" Content="Submit Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Click="OrderPage_Click" Template="{StaticResource RoundButtonControlTemplate}" >
+            <Button.RenderTransform>
+                <TranslateTransform X="0" Y="0" />
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Page>
