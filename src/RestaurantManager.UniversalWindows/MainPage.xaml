@@ -15,8 +15,8 @@
                 <ContentPresenter HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="250" FontWeight="Bold" FontSize="24" />
             </Border>
         </ControlTemplate>
-        <x:String x:Key="RightClickMessage">Thanks to the team that developed this.</x:String>
-        <x:String x:Key="RightClickTitle">Credits</x:String>
+        <x:String x:Key="RightClickMessage">Thank you for trying out this demo.</x:String>
+        <x:String x:Key="RightClickTitle">Thanks</x:String>
     </Page.Resources>
     
     <i:Interaction.Behaviors>
